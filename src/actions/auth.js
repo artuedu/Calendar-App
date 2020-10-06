@@ -80,7 +80,7 @@ const checkingFinish = () => ({
     type: types.authCheckingFinish
 });
 
-const login = (user) => ({
+ const login = (user) => ({
     type: types.authLogin,
     payload: user
 });

@@ -19,7 +19,10 @@ const customStyles = {
     }
 };
 
-Modal.setAppElement('#root');
+
+if(process.env.NODE_ENV !== 'test'){
+  Modal.setAppElement('#root');
+}
 
 const now = moment().minutes(0).seconds(0).add(1, 'hours');
 const nowPlus1 = now.clone().add(1, 'hours');
@@ -118,6 +121,7 @@ export const CalendarModal = () => {
           closeTimeoutMS={200}
           className="modal"
           overlayClassName="modal-fondo"
+          ariaHideApp={ !process.env.NODE_ENV === 'test' }
         >
           <h1> { (activeEvent) ? 'Nuevo evento' : 'Editer evento'} </h1>
           <hr />
